@@ -10,15 +10,17 @@ package entidades;
  */
 public class Persona {
 
+    private String nombre;
+    private String apellidos;
+
     public Persona(String nombre, String apellidos) {
         this.nombre = nombre;
         this.apellidos = apellidos;
     }
-    private String nombre;
-    private String apellidos;
 
-    public Persona(){}
-    
+    public Persona() {
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -34,5 +36,5 @@ public class Persona {
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
-    
+
 }

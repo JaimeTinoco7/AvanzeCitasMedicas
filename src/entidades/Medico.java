@@ -4,32 +4,27 @@
  */
 package entidades;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
  * @author jaime
  */
-public class Medico extends Persona {
+public class Medico extends Usuario {
 
-    private int idMedico;
     private String especialidad;
     private List<Cita> citasAtendidas;
+    private List<Medico> medicos = new ArrayList<>();
 
-    public Medico(int idMedico, String especialidad, List<Cita> citasAtendidas,
-            String nombre, String apellidos) {
-        super(nombre, apellidos);
-        this.idMedico = idMedico;
+    public Medico(String nombre, String apellidos, String especialidad,
+            String correo, String contraseña, List<Cita> citasAtendidas) {
+        super(nombre, apellidos, correo, contraseña);
         this.especialidad = especialidad;
         this.citasAtendidas = citasAtendidas;
-    }
-
-    public int getIdMedico() {
-        return idMedico;
-    }
-
-    public void setIdMedico(int idMedico) {
-        this.idMedico = idMedico;
     }
 
     public String getEspecialidad() {
@@ -47,7 +42,9 @@ public class Medico extends Persona {
     public void setCitasAtendidas(List<Cita> citasAtendidas) {
         this.citasAtendidas = citasAtendidas;
     }
+
     public void atenderCita(Cita cita) {
         citasAtendidas.add(cita);
     }
+
 }

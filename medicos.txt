@@ -1,0 +1,4 @@
+Nombre1,Apellido1,Especialidad1,user123,12345
+Nombre2,Apellido2,Especialidad2,correo2@gmail.com,contrasena2
+Nombre3,Apellido3,Especialidad3,correo3@gmail.com,contrasena3
+

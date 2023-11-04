@@ -12,32 +12,23 @@ import java.util.List;
  *
  * @author jaime
  */
-public class Paciente extends Persona {
+public class Paciente extends Usuario {
 
-    private int idPaciente;
     private LocalDate fechaNacimiento;
     private String genero;
     private HistorialMedico historialMedico;
     private List<Cita> citas;
 
-    public Paciente(int idPaciente, LocalDate fechaNacimiento, 
-            String genero, HistorialMedico historialMedico, List<Cita> citas,
-            String nombre, String apellidos) {
-        super(nombre, apellidos);
-        this.idPaciente = idPaciente;
-        this.fechaNacimiento = fechaNacimiento;
+    public Paciente( String nombre, String apellidos,String genero,
+            String correo, String contraseña, String preguntaSeguridad, 
+            String respuestaSeguridad) {
+        super(nombre, apellidos, correo, contraseña,
+                preguntaSeguridad, respuestaSeguridad);
         this.genero = genero;
-        this.historialMedico = historialMedico;
-        this.citas = citas;
     }
 
-    public int getIdPaciente() {
-        return idPaciente;
-    }
+ 
 
-    public void setIdPaciente(int idPaciente) {
-        this.idPaciente = idPaciente;
-    }
 
     public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
@@ -62,7 +53,8 @@ public class Paciente extends Persona {
     public void setCitas(List<Cita> citas) {
         this.citas = citas;
     }
-     public void agregarCita(Cita cita) {
+
+    public void agregarCita(Cita cita) {
         citas.add(cita);
     }
 
@@ -73,13 +65,14 @@ public class Paciente extends Persona {
     public void setHistorialMedico(HistorialMedico historialMedico) {
         this.historialMedico = historialMedico;
     }
-    
-     public void agregarHistorial(String historial) {
+
+    public void agregarHistorial(String historial) {
         historialMedico.agregarHistorial(historial);
     }
-     public void programarCita(Medico medico, Date fechaHora) {
+
+    public void programarCita(Medico medico, Date fechaHora) {
         Cita cita = new Cita(this, medico, fechaHora);
         citas.add(cita);
     }
-     
+
 }
