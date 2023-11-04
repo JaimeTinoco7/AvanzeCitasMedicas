@@ -117,7 +117,8 @@ public class loginUsuario extends javax.swing.JFrame {
         String line = scanner.nextLine();
         String[] userData = line.split(",");
 
-        if (txtCorreo.getText().equals(userData[3]) && txtPassword.getText().equals(userData[4])) {
+        if (txtCorreo.getText().equals(userData[3]) 
+                && txtPassword.getText().equals(userData[4])) {
             // Credenciales válidas
             usuarioEncontrado = true;
             break;
@@ -127,18 +128,24 @@ public class loginUsuario extends javax.swing.JFrame {
     scanner.close();
 
     if (usuarioEncontrado) {
-        // Mostrar un JOptionPane de bienvenida
-        JOptionPane.showMessageDialog(this, "¡Bienvenido!", "Inicio de sesión exitoso", JOptionPane.INFORMATION_MESSAGE);
         
-        // Abre el marco de vistaUsuario
+        JOptionPane.showMessageDialog(this, "¡Bienvenido!"
+                , "Inicio de sesión exitoso", 
+                JOptionPane.INFORMATION_MESSAGE);
+        
+       
         vistaUsuario pantalla = new vistaUsuario();
         pantalla.setVisible(true);
         this.dispose();
     } else {
-        // Mostrar un JOptionPane para crear una cuenta
-        int respuesta = JOptionPane.showConfirmDialog(this, "Usuario o contraseña incorrectos. ¿Desea crear una cuenta?", "Error de inicio de sesión", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+       
+        int respuesta = JOptionPane.showConfirmDialog(this, 
+                "Usuario o contraseña incorrectos."
+                        + " ¿Desea crear una cuenta?"
+                , "Error de inicio de sesión", 
+                JOptionPane.YES_NO_OPTION, 
+                JOptionPane.ERROR_MESSAGE);
         if (respuesta == JOptionPane.YES_OPTION) {
-            // Abre el marco de registro nuevamente
             vistaUsuario pantalla = new vistaUsuario();
             pantalla.setVisible(true);
             this.dispose();
